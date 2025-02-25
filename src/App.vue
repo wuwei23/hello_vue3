@@ -1,11 +1,13 @@
 
 <template>
     <!-- <TS a="aa" :list="personList" /> -->
-    <DogImageList />
+    <!-- <DogImageList /> -->
+    <Route />
 </template>
 <script lang="ts" setup name="App">
   // import Person from './components/Person1.vue'
   import TS from './components/TS.vue'
+  import Route from './router/Route.vue'
   import DogImageList from './components/DogImageList.vue';
   import {type Persons} from './type/index'
   import {reactive} from 'vue'
