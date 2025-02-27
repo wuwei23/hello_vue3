@@ -56,7 +56,7 @@
         margin:0 auto;
         margin-top:30px;
         border-radius:10px;
-        width:90%;
+        width:600px;
         height:400px;
         border: 1px solid;
     }

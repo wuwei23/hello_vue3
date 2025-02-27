@@ -1,14 +1,41 @@
 <template>
+    <!-- 导航区 -->
     <div class="news">
         <ul>
-            <li><a href="#">新闻001</a></li>
-            <li><a href="#">新闻002</a></li>
-            <li><a href="#">新闻003</a></li>
-            <li><a href="#">新闻004</a></li>
+            <li v-for="news in newsList" :key="news.id">
+                <!-- <RouterLink :to="{
+                    name:'details',
+                    query:{id:news.id,
+                        title:news.title,
+                        content:news.content
+                    }}">
+                    {{news.title}}</RouterLink> -->
+                <!-- 使用params -->
+                <RouterLink :to="{
+                name:'details',
+                params:{
+                    id: news.id,
+                    title: news.title,
+                    content: news.content
+                }}">
+                {{news.title}}</RouterLink>
+            </li>
         </ul>
+        <!-- 展示区 -->
+        <div class="news-content">
+            <RouterView></RouterView>  
+        </div>
     </div>
 </template>
 <script setup lang="ts" name="News">
+    import {reactive} from 'vue'
+
+    const newsList =reactive([
+        {id:'asfdtrfay01',title:'很好的抗癌食物',content:'西蓝花'},
+        {id:'asfdtrfay02',title:'如何一夜暴富',content:'学IT'},
+        {id:'asfdtrfay03',title:'震惊，万万没想到',content:'明天是周一'},
+        {id:'asfdtrfay04',title:'好消息!好消息!',content:'快过年了'}
+    ])
 </script>
 <style scoped>
     .news{
