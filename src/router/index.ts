@@ -17,7 +17,10 @@ const router = createRouter({
           name: 'details',
           // path: 'details',
           path: 'details/:id/:title/:content',
-          component: Details
+          component: Details,
+          props(route){  //将路由参数映射到组件的props中
+            return route.params
+          }
         }
       ]
     },
