@@ -5,5 +5,11 @@ export interface PersonInter {
   name: string,
   age: number
 }
+export interface NewsInter {
+  id: string,
+  title: string,
+  content: string
+}
+
 //自定义类型
 export type Persons = PersonInter[]

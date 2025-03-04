@@ -11,6 +11,7 @@
                     }}">
                     {{news.title}}</RouterLink> -->
                 <!-- 使用params -->
+                <button @click="getNews(news)">查看新闻</button>
                 <RouterLink :to="{
                 name:'details',
                 params:{
@@ -29,6 +30,8 @@
 </template>
 <script setup lang="ts" name="News">
     import {reactive} from 'vue'
+    import {useRouter} from 'vue-router'
+    import {NewsInter} from '../type/index'
 
     const newsList =reactive([
         {id:'asfdtrfay01',title:'很好的抗癌食物',content:'西蓝花'},
@@ -36,6 +39,20 @@
         {id:'asfdtrfay03',title:'震惊，万万没想到',content:'明天是周一'},
         {id:'asfdtrfay04',title:'好消息!好消息!',content:'快过年了'}
     ])
+
+    const router =useRouter()
+    //查看新闻
+    const getNews =(news:NewsInter)=>{
+        console.log('查看新闻')
+        router.push({
+            name:'details',
+            params:{
+                id: news.id,
+                title: news.title,
+                content: news.content
+            }
+        })
+    }
 </script>
 <style scoped>
     .news{
